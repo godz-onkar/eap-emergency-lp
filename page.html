@@ -89,9 +89,14 @@ p{margin:0}
 .now .ico{width:28px;height:28px;color:var(--navy);margin-top:2px;grid-row:span 2}
 .now h2{font-size:22px;color:var(--navy)}
 .now p{color:var(--ink);font-size:17px}
-.now-mobile{padding:24px 0 0}
-@media (min-width:900px){.now-mobile{display:none}.hero-side .now{padding:28px 28px 28px 24px}.hero-side .now h2{font-size:26px}}
-.photo-slot{margin-top:18px;aspect-ratio:4/3;border-radius:var(--r-card);border:1.5px dashed var(--line-navy);display:grid;place-items:center;text-align:center;padding:20px;color:var(--on-navy);font-size:14px;line-height:1.4}
+.ph{margin:0;border-radius:var(--r-card);overflow:hidden;background:var(--canvas-alt)}
+.ph img{width:100%;height:100%;object-fit:cover}
+.hero-photo{aspect-ratio:4/5;max-height:560px;border:1px solid var(--line-navy)}
+.hero-photo img{object-position:50% 30%}
+.ph-cap{font-size:13.5px;color:var(--on-navy);margin-top:10px}
+/* callout band */
+.now-band{padding:24px 0 0}
+@media (min-width:900px){.now-band{padding:0 var(--gut);margin-top:-44px;position:relative;z-index:2}.now-band .now{grid-template-columns:auto auto 1fr;align-items:center;gap:0 20px;padding:24px 28px;box-shadow:0 10px 30px rgba(6,38,92,.12)}.now-band .now .ico{grid-row:auto}.now-band .now h2{font-size:24px;white-space:nowrap}.now-band .now p{font-size:17px}}
 
 /* sections */
 .sec{padding:56px 0}
@@ -110,8 +115,11 @@ p{margin:0}
 .folio{position:relative;font:700 15px/1 var(--display);color:var(--ink-2);letter-spacing:.04em;display:block;margin-bottom:6px}
 .steps h3{font-size:22px;color:var(--ink)}
 .steps p{margin-top:4px;color:var(--ink-2)}
+.steps-photo{aspect-ratio:4/3;margin-top:24px}
+.steps-cta{margin-top:32px}
 @media (min-width:900px){
   .steps-grid{display:grid;grid-template-columns:5fr 7fr;gap:64px;align-items:start}
+  .steps-cta{display:inline-flex;min-width:340px}
   .steps{margin-top:0}
   .steps h3{font-size:26px}
 }
@@ -124,15 +132,16 @@ p{margin:0}
 .rev-sum .stars svg{width:18px;height:18px}
 .rev-grid{display:grid;gap:28px;margin-top:32px}
 .quote{margin:0;padding-top:20px;border-top:1px solid var(--line)}
+.quote .q-h,.quote.big .q-h{font:700 13px/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--navy);margin-bottom:8px}
 .quote p{font:600 19px/1.45 var(--display);color:var(--ink)}
+.quote .q-h + p{margin-top:0}
 .quote footer{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:15px;color:var(--ink-2)}
 .quote footer .stars svg{width:14px;height:14px}
-.quote.big p{font-size:22px}
+.quote.big p{font-size:19px}
 .rev-link{display:inline-block;margin-top:28px;font-weight:700;color:var(--navy);text-underline-offset:4px}
 @media (min-width:900px){
-  .rev-grid{grid-template-columns:7fr 5fr;gap:24px 64px}
-  .quote.big{grid-row:span 2}
-  .quote.big p{font-size:30px;line-height:1.35}
+  .rev-grid{grid-template-columns:1fr 1fr;gap:40px 64px}
+  .quote p,.quote.big p{font-size:22px;line-height:1.42}
 }
 
 /* services */
@@ -142,6 +151,7 @@ p{margin:0}
 .checks li:first-child{border-top:1px solid var(--line)}
 .checks .ico{color:var(--navy);stroke-width:2.4}
 .svc-cta{margin-top:24px}
+.svc-photo{display:none}
 .also{margin-top:8px;padding:22px 0 0}
 .also h3{font:700 13px/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
 .also ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:4px 0;font-size:16px;font-weight:600;color:var(--ink)}
@@ -153,35 +163,56 @@ p{margin:0}
   .checks{grid-template-columns:1fr 1fr;column-gap:40px;margin-top:0}
   .checks li:nth-child(2){border-top:1px solid var(--line)}
   .svc-cta{display:inline-flex;min-width:340px}
+  .svc-photo{display:block;aspect-ratio:4/3;margin-top:36px}
 }
 
-/* why */
+/* about */
 .why{background:var(--canvas-alt)}
-.why-grid{display:grid;gap:24px}
-.spec{list-style:none;margin:0;padding:0}
-.spec li{display:grid;grid-template-columns:1fr;gap:2px;padding:16px 0;border-bottom:1px solid var(--line)}
+.why-grid{display:grid;gap:32px}
+.about p{margin-top:16px;color:var(--ink);max-width:60ch}
+.about p.give{color:var(--ink-2);font-size:16px}
+.spec{list-style:none;margin:28px 0 0;padding:0}
+.spec li{display:grid;grid-template-columns:1fr;gap:2px;padding:14px 0;border-bottom:1px solid var(--line)}
 .spec li:first-child{border-top:1px solid var(--line)}
 .spec b{font-weight:700;color:var(--ink)}
 .spec span{color:var(--ink-2)}
-.why .photo-slot{border-color:var(--line);color:var(--ink-2);display:none}
+.about-photos{display:grid;grid-template-columns:1fr;gap:12px}
+.about-photos .p1{aspect-ratio:4/3}
+.about-photos .p1 img{object-position:50% 25%}
+.about-photos .p2{display:none}
 @media (min-width:900px){
-  .why-grid{grid-template-columns:5fr 7fr;gap:64px;align-items:start}
-  .spec li{grid-template-columns:220px 1fr;gap:24px;padding:20px 0}
-  .why .photo-slot{display:grid;margin-top:28px}
+  .why-grid{grid-template-columns:6fr 6fr;gap:64px;align-items:start}
+  .spec li{grid-template-columns:200px 1fr;gap:24px;padding:16px 0}
+  .about-photos{grid-template-columns:7fr 5fr;align-items:end;position:sticky;top:110px}
+  .about-photos .p1{aspect-ratio:3/4}
+  .about-photos .p2{display:block;aspect-ratio:3/4;margin-bottom:-40px}
 }
 
-/* area: the void */
-.area{padding:72px 0}
-.area .towns{list-style:none;margin:20px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px 0;font:600 22px/1.4 var(--display);color:var(--ink)}
-.area .towns li{white-space:nowrap}
-.area .towns li:not(:last-child)::after{content:"·";color:#9AA6BD;padding:0 .45em;font-family:var(--body)}
-.area .note{margin-top:16px;color:var(--ink-2)}
+/* area */
+.area-grid{display:grid;gap:32px}
+.groups{margin:24px 0 0;display:grid;gap:18px}
+.groups h3{font:700 13px/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
+.towns{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 16px;font:600 20px/1.35 var(--display);color:var(--ink)}
+.towns li{white-space:nowrap}
+.area-checks{list-style:none;margin:24px 0 0;padding:0;display:grid;gap:10px}
+.area-checks li{display:flex;gap:10px;align-items:flex-start;font-weight:600}
+.area-checks .ico{color:var(--navy);stroke-width:2.4;margin-top:2px}
+.area-cta{margin-top:24px}
+.area .note{margin-top:12px;color:var(--ink-2);font-size:16px}
 .area .note a{font-weight:700;color:var(--navy);text-underline-offset:4px}
-@media (min-width:900px){.area{padding:144px 0}.area .inner{max-width:880px}.area h2{font-size:54px}.area .towns{font-size:30px}}
+.map{aspect-ratio:4/3;border-radius:var(--r-card);overflow:hidden;border:1px solid var(--line);background:var(--canvas-alt)}
+.map iframe{width:100%;height:100%;border:0;display:block}
+@media (min-width:900px){
+  .area-grid{grid-template-columns:5fr 7fr;gap:64px;align-items:center}
+  .towns{font-size:22px;grid-template-columns:repeat(3,auto);justify-content:start;column-gap:28px}
+  .area-cta{display:inline-flex;min-width:340px}
+  .map{aspect-ratio:auto;height:520px}
+}
 
 /* faq */
 .faq{border-top:1px solid var(--line)}
 .faq dl{margin:24px 0 0;display:grid;gap:0}
+.faq .lede{margin-top:10px}
 .faq dt{font:700 20px/1.3 var(--display);color:var(--ink);padding-top:18px}
 .faq dd{margin:6px 0 0;padding-bottom:18px;border-bottom:1px solid var(--line);color:var(--ink-2);max-width:62ch}
 @media (min-width:900px){.faq .wrap{display:grid;grid-template-columns:5fr 7fr;gap:64px}.faq dl{margin-top:0}}
@@ -261,18 +292,11 @@ p{margin:0}
           <span>NC license #27975</span>
         </div>
       </div>
-      <aside class="hero-side" aria-label="Before you call">
-        <div class="now">
-          <svg class="ico"><use href="#i-valve"/></svg>
-          <h2>Water still running?</h2>
-          <p>Shut off your main water valve to stop the damage, then call us. If you can’t find the valve, call anyway.</p>
-        </div>
-        <div class="photo-slot">Photo slot: an East Atlantic technician at a customer’s door, in uniform (4/3, from the shot list)</div>
-      </aside>
+      <figure class="hero-side ph hero-photo"><img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TVNz-QnEGJC_tF8G4OGCI7Y6XyvPggzXFXhuHX1CjSr0lmKNfzgkNWjmtCzTxHUwNWmEtyPoh7A9CCtMYtnDM5PI-4OqwvF9UoFTkyv2pen1oYHfMiESEomH3A2XYQGD5FToA7ISx-hYJm=w900-k-no" alt="An East Atlantic plumber clearing a drain under a sink" width="800" height="1061" fetchpriority="high"></figure>
     </div>
   </section>
 
-  <div class="wrap now-mobile">
+  <div class="wrap now-band">
     <div class="now">
       <svg class="ico"><use href="#i-valve"/></svg>
       <h2>Water still running?</h2>
@@ -282,12 +306,18 @@ p{margin:0}
 
   <section class="sec">
     <div class="wrap steps-grid">
-      <h2>What happens when you call</h2>
+      <div>
+        <h2>What happens when you call</h2>
+        <figure class="ph steps-photo"><img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TgzWg6Lcw-a1CLR2w-OthzugntFUT-A1tMH9sk9bySp2V7x7ZDb9myMvMrEeK6CvkFqr8ip1u0hzdEvwOSuls7osLTPMsKo1V-0WBhrw14ihhfuAha3Nx0ZSV797TqyvXEtA=w800-k-no" alt="An East Atlantic Plumbing truck parked outside a customer’s home" width="479" height="453" loading="lazy"></figure>
+      </div>
+      <div>
       <ol class="steps">
         <li><span class="folio">01</span><h3>You call, any hour.</h3><p>Nights and weekends included.</p></li>
         <li><span class="folio">02</span><h3>A licensed plumber comes to you.</h3><p>Anywhere in our service area, from Hampstead to Kure Beach.</p></li>
         <li><span class="folio">03</span><h3>You get the price first.</h3><p>Before any work starts, and you decide whether to go ahead.</p></li>
       </ol>
+      <a class="btn-call steps-cta" href="tel:+19106163238" data-pos="steps"><svg class="ico"><use href="#i-phone"/></svg>Call (910) 616-3238</a>
+      </div>
     </div>
   </section>
 
@@ -299,16 +329,24 @@ p{margin:0}
       </div>
       <div class="rev-grid">
         <blockquote class="quote big">
+          <p class="q-h">Two plumbers out within the hour</p>
           <p>“We called them and they had two plumbers out to our house within the hour. The price was given to us in advance for the emergency call and I was also provided with a price for the repair in advance.”</p>
           <footer><span class="stars" aria-label="5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>Nancy P.</footer>
         </blockquote>
         <blockquote class="quote">
+          <p class="q-h">There at 6:30 on a Friday night</p>
           <p>“Never have I encountered an organization that would show up at 6:30 pm on a Friday night and stay until the problem was resolved.”</p>
           <footer><span class="stars" aria-label="5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>Amy M.</footer>
         </blockquote>
         <blockquote class="quote">
+          <p class="q-h">Explained everything clearly</p>
           <p>“We recently had a leak and called East Atlantic Plumbing for help. They were knowledgeable, kind, and took the time to explain everything clearly.”</p>
           <footer><span class="stars" aria-label="5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>Madeline A.</footer>
+        </blockquote>
+        <blockquote class="quote">
+          <p class="q-h">On site in 20 minutes on a Saturday</p>
+          <p>“My restaurant needed a plumber fast! Matthew answered the phone early Saturday morning and was at my place within 20 minutes.”</p>
+          <footer><span class="stars" aria-label="5 stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>Kathy W.</footer>
         </blockquote>
       </div>
       <a class="rev-link" href="https://www.google.com/search?q=East+Atlantic+Plumbing+LLC+Wilmington+NC+reviews" target="_blank" rel="noopener">Read all reviews on Google</a>
@@ -320,6 +358,7 @@ p{margin:0}
       <div>
         <h2>Emergencies we handle</h2>
         <a class="btn-call svc-cta" href="tel:+19106163238" data-pos="services"><svg class="ico"><use href="#i-phone"/></svg>Call (910) 616-3238</a>
+        <figure class="ph svc-photo"><img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Q4lQZbzxS2-xQdq3RLlsmvvUf8tfcfd_ytuuPVGdPOEiRHolAOUZFKSPsnd-YuZnUb1nW_7E1nQhYbRV8FrO3i4adOJabwImR6l4TCUrHhR_az-eBUog4269yj9Y-pVcRA0iDD=w800-k-no" alt="An East Atlantic plumber running a drain machine outside a home" width="720" height="960" loading="lazy"></figure>
       </div>
       <div>
         <ul class="checks">
@@ -343,36 +382,61 @@ p{margin:0}
     </div>
   </section>
 
-  <section class="sec why">
+  <section class="sec why" aria-labelledby="about-h">
     <div class="wrap why-grid">
-      <div>
-        <h2>A Wilmington plumber since 1985</h2>
-        <div class="photo-slot">Photo slot: the East Atlantic van in a Wilmington driveway (4/3, from the shot list)</div>
+      <div class="about">
+        <h2 id="about-h">A Wilmington plumber since 1985</h2>
+        <p>East Atlantic Plumbing opened in Wilmington in 1985 and is still local and family-owned. Over the years we’ve added the equipment and training to handle almost any plumbing job, from a burst pipe at night to a sewer line replacement.</p>
+        <p>We treat every customer like family. You get the price before any work starts, and a plumber who explains what’s wrong in plain language.</p>
+        <ul class="spec">
+          <li><b>Family-owned</b><span>Serving the Wilmington area since 1985.</span></li>
+          <li><b>Licensed in North Carolina</b><span>State license #27975.</span></li>
+          <li><b>Reviewed by neighbors</b><span>4.8 stars from 600+ Google reviews.</span></li>
+          <li><b>Local office</b><span>1027 S 3rd St, Wilmington.</span></li>
+        </ul>
+        <p class="give">We also give back close to home, supporting the New Hanover Lions Club, the Shriners and Friends of Felines, among others.</p>
       </div>
-      <ul class="spec">
-        <li><b>Family-owned</b><span>Owned and run here in Wilmington.</span></li>
-        <li><b>Licensed in North Carolina</b><span>State license #27975.</span></li>
-        <li><b>Reviewed by neighbors</b><span>600+ Google reviews from homes across the area.</span></li>
-      </ul>
+      <div class="about-photos">
+        <figure class="ph p1"><img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9RASpzmFlykLSJt4yG5NKMYP4A_PqXxPUr178vF8qnZ7tkWt3VCoEQQV_Mz070-SiNjHKJF88I6sNKjFgtf7UH6ROmoWIo_2v4_37M-sIOVMHBHJC84zfe3Qqyuj5votLGdBVMj=w800-k-no" alt="A member of the East Atlantic team beside one of the company vans" width="720" height="960" loading="lazy"></figure>
+        <figure class="ph p2"><img referrerpolicy="no-referrer" src="https://lh3.googleusercontent.com/gps-cs-s/ANWiy9QVNrpZp4Fl97PiI1fWG8_r2TXYHgY7qJv6xnUwVQ6c0YD_BcgDYv5nhrQeT9niKNHyHmY3FMKp8sTUcEJ0squ5il8W3AOwgKqYOnY-41JgHWdArue2odfp7RQgkQjqORq-ejhtyg=w700-k-no" alt="The East Atlantic Plumbing office sign" width="720" height="960" loading="lazy"></figure>
+      </div>
     </div>
   </section>
 
-  <section class="area">
-    <div class="wrap"><div class="inner">
-      <h2>We come to you</h2>
-      <ul class="towns"><li>Wilmington</li><li>Leland</li><li>Hampstead</li><li>Carolina Beach</li><li>Kure Beach</li><li>Wrightsville Beach</li><li>Castle Hayne</li><li>Porters Neck</li><li>Ogden</li><li>Myrtle Grove</li><li>Bayshore</li></ul>
-      <p class="note">Not sure we cover your street? <a href="tel:+19106163238" data-pos="area">Call and ask.</a></p>
-    </div></div>
+  <section class="sec area" aria-labelledby="area-h">
+    <div class="wrap area-grid">
+      <div>
+        <h2 id="area-h">We come to you</h2>
+        <p class="lede">From Hampstead down to Kure Beach, and across the river to Leland.</p>
+        <div class="groups">
+          <div><h3>Wilmington and nearby</h3><ul class="towns"><li>Wilmington</li><li>Ogden</li><li>Porters Neck</li><li>Castle Hayne</li><li>Myrtle Grove</li><li>Bayshore</li></ul></div>
+          <div><h3>The beaches</h3><ul class="towns"><li>Wrightsville Beach</li><li>Carolina Beach</li><li>Kure Beach</li></ul></div>
+          <div><h3>Across the river and up the coast</h3><ul class="towns"><li>Leland</li><li>Hampstead</li></ul></div>
+        </div>
+        <ul class="area-checks">
+          <li><svg class="ico"><use href="#i-check"/></svg>Open 24/7, nights and weekends included</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Local office at 1027 S 3rd St, Wilmington</li>
+        </ul>
+        <a class="btn-call area-cta" href="tel:+19106163238" data-pos="area"><svg class="ico"><use href="#i-phone"/></svg>Call (910) 616-3238</a>
+        <p class="note">Not sure we cover your street? Call and ask.</p>
+      </div>
+      <div class="map"><iframe title="Map of East Atlantic Plumbing’s office in Wilmington, NC" src="https://maps.google.com/maps?q=East%%20Atlantic%%20Plumbing%%20LLC%%2C%%201027%%20S%%203rd%%20St%%2C%%20Wilmington%%2C%%20NC&amp;z=10&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+    </div>
   </section>
 
   <section class="sec faq" aria-labelledby="faq-h">
     <div class="wrap">
-      <h2 id="faq-h">Before we get there</h2>
+      <div>
+        <h2 id="faq-h">Before we get there</h2>
+        <p class="lede">Have a question that isn’t here? Call us, day or night.</p>
+      </div>
       <dl>
         <dt>What should I do before you get here?</dt>
         <dd>Shut off the main water valve if water is still running, and keep people and pets away from the water.</dd>
         <dt>What if it’s not an emergency?</dt>
         <dd>Call anyway. We’ll book a visit at a time that works for you.</dd>
+        <dt>Do you handle emergencies for businesses?</dt>
+        <dd>Yes. We do commercial plumbing too, including emergency calls for restaurants and other businesses.</dd>
       </dl>
     </div>
   </section>
