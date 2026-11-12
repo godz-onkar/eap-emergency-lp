@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>East Atlantic Emergency Page</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#131313;--paper:#F3F2F2;--accent:#FF5B2A;--line:rgba(19,19,19,.12)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif}
+.top{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:16px;padding:24px 28px 16px}
+h1{font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:28px;letter-spacing:-.02em;margin:0}
+.top p{margin:6px 0 0;font-size:14px;color:#555;max-width:680px}
+.top a{color:var(--ink)}
+.tabs{display:flex;gap:6px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px}
+.tabs button{border:0;background:transparent;font:600 14px Inter,sans-serif;padding:9px 16px;border-radius:999px;cursor:pointer;color:var(--ink)}
+.tabs button.on{background:var(--ink);color:#fff}
+.tabs button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.stage{display:grid;grid-template-columns:1fr 430px;gap:28px;padding:8px 28px 40px;align-items:start}
+.stage.d{grid-template-columns:1fr}
+.stage.m{grid-template-columns:430px;justify-content:center}
+.stage.d .mob,.stage.m .desk{display:none}
+.label{font:600 12px Inter,sans-serif;text-transform:uppercase;letter-spacing:.06em;color:#666;margin:0 0 10px}
+.dframe{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 18px 50px rgba(19,19,19,.08)}
+.bar{height:30px;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--line);background:#fafafa}
+.bar i{width:9px;height:9px;border-radius:50%;background:#ddd}
+.dwrap{position:relative;overflow:hidden}
+.dwrap iframe{position:absolute;top:0;left:0;width:1440px;height:900px;border:0;transform-origin:0 0}
+.phone{width:430px;background:#111;border-radius:48px;padding:20px;box-shadow:0 18px 50px rgba(19,19,19,.18)}
+.phone iframe{display:block;width:390px;height:844px;border:0;border-radius:30px;background:#fff}
+@media (max-width:1100px){.stage{grid-template-columns:1fr}.mob{justify-self:center}}
+@media (max-width:480px){.phone{width:100%;padding:10px;border-radius:30px}.phone iframe{width:100%}.stage{padding:8px 12px 32px}.top{padding:20px 16px 12px}}
+
+.notes{max-width:980px;margin:0 auto;padding:8px 28px 72px}
+.notes h2{font-family:"Inter Tight",Inter,sans-serif;font-weight:800;font-size:24px;letter-spacing:-.02em;margin:40px 0 6px}
+.notes h3{font-family:"Inter Tight",Inter,sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em;margin:28px 0 8px}
+.notes p,.notes li{font-size:15px;line-height:1.6;color:#333}
+.notes p.lede{color:#555;margin-top:0}
+.notes ol,.notes ul{padding-left:20px;margin:8px 0}
+.notes li{margin:4px 0}
+.notes li b{color:var(--ink)}
+.notes .rule{border:0;border-top:1px solid var(--line);margin:40px 0 0}
+@media (max-width:480px){.notes{padding:8px 16px 56px}}
+</style>
+</head>
+<body>
+<div class="top">
+  <div>
+    <h1>East Atlantic Plumbing: emergency page</h1>
+    <p>Layout preview for the Google Ads emergency page, desktop at 1440 and mobile at 390. Scroll inside each frame. The mobile call bar appears once the hero call button scrolls away. Dashed boxes on desktop are photo slots. <a href="page.html">Open the page on its own</a>.</p>
+  </div>
+  <div class="tabs" role="tablist" aria-label="View">
+    <button class="on" data-v="" role="tab">Both</button><button data-v="d" role="tab">Desktop</button><button data-v="m" role="tab">Mobile</button>
+  </div>
+</div>
+<div class="stage" id="stage">
+  <div class="desk">
+    <p class="label">Desktop · 1440</p>
+    <div class="dframe"><div class="bar"><i></i><i></i><i></i></div><div class="dwrap" id="dwrap"><iframe id="dfr" src="page.html" title="Desktop layout"></iframe></div></div>
+  </div>
+  <div class="mob">
+    <p class="label">Mobile · 390</p>
+    <div class="phone"><iframe src="page.html" title="Mobile layout"></iframe></div>
+  </div>
+</div>
+
+<section class="notes">
+  <hr class="rule">
+  <h2>Layout and build notes</h2>
+  <p class="lede">The page has one job: get a homeowner with a plumbing emergency to call. Everything below is built around the phone number. When you give feedback, name the section number.</p>
+
+  <h3>How the page is built</h3>
+  <ol>
+    <li><b>Header (sticky).</b> Logo left, tap-to-call number right with "Open 24/7". Stays on screen while scrolling.</li>
+    <li><b>Hero.</b> Headline matches the emergency ad: "24/7 emergency plumber in Wilmington, NC". One yellow call button, a callback link for people who can't talk, then the rating, years in business and license number. On mobile the whole hero fits the first screen with no photo, so the call button is above the fold.</li>
+    <li><b>"Water still running?"</b> A short do-this-now note: shut off the main valve, then call. Sits next to the hero on desktop and right under it on mobile.</li>
+    <li><b>What happens when you call.</b> Three steps: you call any hour, a licensed plumber comes to you, you get the price before work starts. The navy line with elbows is the page's pipe motif.</li>
+    <li><b>Reviews.</b> 4.8 stars from 600+ Google reviews, three real published reviews, and a link to all reviews on Google.</li>
+    <li><b>Emergencies we handle.</b> Six emergency types, a call button, and a short "Not an emergency? We also handle" list for people who landed here with a smaller job.</li>
+    <li><b>Why East Atlantic.</b> Family-owned since 1985, NC license #27975, reviewed by neighbors. Photo slot on desktop.</li>
+    <li><b>Service area.</b> The towns we cover, plus "Not sure we cover your street? Call and ask."</li>
+    <li><b>Before we get there.</b> Two short questions: what to do while you wait, and what if it's not an emergency.</li>
+    <li><b>Closing.</b> "Get a plumber on the way." Call button plus a three-field callback form (name, phone, what's going on).</li>
+    <li><b>Footer.</b> Name, address, phone and license, matching the Google Business Profile.</li>
+    <li><b>Mobile call bar.</b> Full-width yellow "Call now" bar fixed to the bottom of the screen on mobile.</li>
+  </ol>
+
+  <h3>Design choices</h3>
+  <ul>
+    <li><b>Yellow means call.</b> The brand yellow is used only on call buttons, so the eye learns where to tap. The callback form button is navy on purpose.</li>
+    <li><b>One phone number</b> everywhere on the page, seven tap-to-call links in all.</li>
+    <li><b>Brand colors and logo</b> from the live site: navy and yellow, the wrench logo. Headlines in a sturdy serif, body text in Raleway (the site's own font).</li>
+    <li><b>No stock photos.</b> Photo slots stay empty until we have real East Atlantic photos.</li>
+  </ul>
+
+  <h3>Before this goes live</h3>
+  <ul>
+    <li><b>Photos.</b> Three shots: a technician at a customer's door in uniform, the East Atlantic van in a Wilmington driveway, and hands on a fitting or water heater valve.</li>
+    <li><b>Logo file.</b> An SVG or high-resolution logo from the client. The preview uses the logo from the current landing pages.</li>
+    <li><b>Tracking number.</b> The page shows the main number until the Google Ads forwarding number and number swap are set up. Every call link carries a position tag (header, hero, services, service area, closing, footer, call bar) so we can see which button gets the calls.</li>
+    <li><b>Form.</b> The form here is a preview and isn't connected. On the live page it posts to GHL with hidden fields for the click ID and UTM tags.</li>
+    <li><b>License number.</b> Confirm #27975 is current before launch.</li>
+    <li><b>Speed.</b> Target a mobile PageSpeed score of 85+ on the live build (today's page scores 45).</li>
+  </ul>
+</section>
+<script>
+const stage=document.getElementById('stage'),wrap=document.getElementById('dwrap'),fr=document.getElementById('dfr');
+const views={'':'', 'd':'#desktop', 'm':'#mobile'};
+function fit(){const s=Math.min(1,wrap.clientWidth/1440);fr.style.transform='scale('+s+')';wrap.style.height=(900*s)+'px';}
+function setView(v){
+  document.querySelectorAll('.tabs button').forEach(x=>{const on=x.dataset.v===v;x.classList.toggle('on',on);x.setAttribute('aria-selected',on)});
+  stage.className='stage'+(v?' '+v:'');requestAnimationFrame(fit);
+}
+new ResizeObserver(fit).observe(wrap);fit();
+document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{setView(b.dataset.v);history.replaceState(null,'',views[b.dataset.v]||location.pathname)});
+const h=location.hash.replace('#','');setView(h==='desktop'?'d':h==='mobile'?'m':'');
+</script>
+</body>
+</html>
